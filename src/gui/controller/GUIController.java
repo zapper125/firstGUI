@@ -13,7 +13,7 @@ public class GUIController
 
 		myGru = new Gru();
 		
-		appFrame = new FirstFrame();
+		appFrame = new FirstFrame(this);
 	}
 	
 	public void start()
