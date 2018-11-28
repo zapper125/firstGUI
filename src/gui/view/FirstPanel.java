@@ -31,11 +31,13 @@ public class FirstPanel extends JPanel
 	
 	private void changeBackground()
 	{
+		//changes to random color.
 		int red = (int) (Math.random() * 256);
 		int blue = (int) (Math.random() * 256);
 		int green = (int) (Math.random() * 256);
 		this.setBackground(new Color(red,green,blue));
-	}
+		firstLabel.setText("Red: " + red + " Green: " + green + " Blue " + blue);
+ }
 	private void setupPanel()
 	{
 		this.add(firstButton);
