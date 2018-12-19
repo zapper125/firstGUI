@@ -16,6 +16,7 @@ public class FirstPanel extends JPanel
 	public FirstPanel(GUIController appController)
 	{
 		super();
+		setBackground(Color.RED);
 		
 		this.appController = appController; 
 		
@@ -23,6 +24,11 @@ public class FirstPanel extends JPanel
 		firstLabel = new JLabel("words");
 		firstButton = new JButton("");
 		appLayout = new SpringLayout();
+		appLayout.putConstraint(SpringLayout.WEST, firstButton, 177, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, firstButton, -4, SpringLayout.NORTH, firstLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, firstLabel, 136,SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, firstLabel, 194, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, firstLabel, -218, SpringLayout.EAST, this);
 		
 		setupPanel();
 		setupLayout();
@@ -43,14 +49,21 @@ public class FirstPanel extends JPanel
 		this.add(firstButton);
 		this.add(firstLabel);
 		this.add(firstLabel);
+		this.setLayout(appLayout);
+		
+		JButton btnNewButton = new JButton("New button");
+		appLayout.putConstraint(SpringLayout.NORTH, btnNewButton, 171, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, firstLabel, -6, SpringLayout.NORTH, btnNewButton);
+		appLayout.putConstraint(SpringLayout.WEST, btnNewButton, 157, SpringLayout.WEST, this);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		add(btnNewButton);
 	}
 	
 	private void setupLayout()
 	{
-		appLayout.putConstraint(SpringLayout.NORTH, firstLabel, 70,SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, firstLabel, -90,SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.WEST, firstLabel, 175,SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, firstLabel, -135,SpringLayout.SOUTH, this);
 	}
 	private void setupListeners()
 	{
